@@ -9,11 +9,17 @@ done
 unset file
 
 
-
-# Colors and Bash Prompt style:
-
+##########################################################################
+# Colors and Bash Prompt style
+##########################################################################
 # @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
 # Edited from https://github.com/gf3/dotfiles
+#
+
+# Change this symbol to something crazy l33t! 
+# (http://en.wikipedia.org/wiki/Unicode_symbols)
+symbol="⚡ "
+
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -67,5 +73,7 @@ function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
+#
+##########################################################################
