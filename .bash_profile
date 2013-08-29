@@ -1,56 +1,4 @@
 ##########################################################################
-# Aliases
-##########################################################################
-
-# Open the current dir of files in Sublime Text
-alias s='open -a "Sublime Text 2"'
-
-# Quicker navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
-# Shortcuts
-alias code="cd ~/Code"
-alias sites="cd ~/Code/sites"
-
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
-else # OS X `ls`
-	colorflag="-G"
-fi
-
-# List all files colorized in long format
-alias l="ls -lF ${colorflag}"
-
-# List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
-
-# List only directories
-alias lsd='ls -lF ${colorflag} | grep "^d"'
-
-# Always use color output for `ls`
-alias ls="command ls ${colorflag}"
-
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
-
-# Colored up cat!
-# You must install Pygments first - "sudo easy_install Pygments"
-alias c='pygmentize -O style=monokai -f console256 -g'
-
-# Git 
-# gs
-# ga
-# gc
-# gp
-
-##########################################################################
-
-
-##########################################################################
 # Colors and Bash Prompt style
 # @gf3’s Sexy Bash Prompt, with some modifications 
 # (https://github.com/gf3/dotfiles)
@@ -115,7 +63,56 @@ function parse_git_branch() {
 
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
+
+
 ##########################################################################
+# Aliases
+##########################################################################
+
+# Open the current dir of files in Sublime Text
+alias s='open -a "Sublime Text 2"'
+
+# Quicker navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Shortcuts
+alias code="cd ~/Code"
+alias sites="cd ~/Code/sites"
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	colorflag="--color"
+else # OS X `ls`
+	colorflag="-G"
+fi
+
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
+
+# List all files colorized in long format, including dot files
+alias la="ls -laF ${colorflag}"
+
+# List only directories
+alias lsd='ls -lF ${colorflag} | grep "^d"'
+
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Colored up cat!
+# You must install Pygments first - "sudo easy_install Pygments"
+alias c='pygmentize -O style=monokai -f console256 -g'
+
+# Git 
+# gs
+# ga
+# gc
+# gp
 
 
 ##########################################################################
@@ -127,5 +124,3 @@ export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 # Only show the current directory's name in the tab 
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
-
-##########################################################################
