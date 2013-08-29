@@ -1,8 +1,7 @@
-##########################################################################
+
 # Colors and Bash Prompt style
 # @gf3’s Sexy Bash Prompt, with some modifications 
 # (https://github.com/gf3/dotfiles)
-##########################################################################
 
 # Change this symbol to something crazy l33t! 
 # (http://en.wikipedia.org/wiki/Unicode_symbols)
@@ -109,11 +108,10 @@ alias sudo='sudo '
 alias c='pygmentize -O style=monokai -f console256 -g'
 
 # Git 
-# gs
-# ga
-# gc
-# gp
-
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit -m' # requires you to type a commit message
+alias gp='git push'
 
 ##########################################################################
 # Misc
