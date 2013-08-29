@@ -1,24 +1,64 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
+##########################################################################
+# Aliases
+##########################################################################
 
-# Load other dotfiles:
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{bash_prompt,aliases,extra}; do
-	[ -r "$file" ] && source "$file"
-done
-unset file
+# Open the current dir of files in Sublime Text
+alias s='open -a "Sublime Text 2"'
+
+# Quicker navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Shortcuts
+alias code="cd ~/Code"
+alias sites="cd ~/Code/sites"
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	colorflag="--color"
+else # OS X `ls`
+	colorflag="-G"
+fi
+
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
+
+# List all files colorized in long format, including dot files
+alias la="ls -laF ${colorflag}"
+
+# List only directories
+alias lsd='ls -lF ${colorflag} | grep "^d"'
+
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Colored up cat!
+# You must install Pygments first - "sudo easy_install Pygments"
+alias c='pygmentize -O style=monokai -f console256 -g'
+
+# Git 
+# gs
+# ga
+# gc
+# gp
+
+##########################################################################
 
 
 ##########################################################################
 # Colors and Bash Prompt style
+# @gf3’s Sexy Bash Prompt, with some modifications 
+# (https://github.com/gf3/dotfiles)
 ##########################################################################
-# @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
-# Edited from https://github.com/gf3/dotfiles
-#
 
 # Change this symbol to something crazy l33t! 
 # (http://en.wikipedia.org/wiki/Unicode_symbols)
-symbol="⚡ "
+symbol="£ "
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM=gnome-256color
@@ -75,5 +115,17 @@ function parse_git_branch() {
 
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
-#
+##########################################################################
+
+
+##########################################################################
+# Misc
+##########################################################################
+
+# init z! (https://github.com/rupa/z)
+. ~/Code/dotfiles/z.sh
+
+# Only show the current directory's name in the tab 
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+
 ##########################################################################

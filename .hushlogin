@@ -1,0 +1,1 @@
+# This file prevents the shell login message from appearing
