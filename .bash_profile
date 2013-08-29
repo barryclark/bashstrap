@@ -1,12 +1,7 @@
 
-# Colors and Bash Prompt style
-# @gf3’s Sexy Bash Prompt, with some modifications 
+### Bash Prompt colors 
+# Modified version of @gf3’s Sexy Bash Prompt 
 # (https://github.com/gf3/dotfiles)
-
-# Change this symbol to something crazy l33t! 
-# (http://en.wikipedia.org/wiki/Unicode_symbols)
-symbol="£ "
-
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -60,13 +55,15 @@ function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
+# Change this symbol to something sweet, like my British pound sign.
+# (http://en.wikipedia.org/wiki/Unicode_symbols)
+symbol="£ "
+
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 
-##########################################################################
-# Aliases
-##########################################################################
+### Aliases
 
 # Open the current dir of files in Sublime Text
 alias s='open -a "Sublime Text 2"'
@@ -113,9 +110,8 @@ alias ga='git add .'
 alias gc='git commit -m' # requires you to type a commit message
 alias gp='git push'
 
-##########################################################################
-# Misc
-##########################################################################
+
+### Misc
 
 # init z! (https://github.com/rupa/z)
 . ~/Code/dotfiles/z.sh
