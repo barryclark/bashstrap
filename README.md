@@ -32,17 +32,17 @@ If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce
 
 3. Back up your current dotfiles (optional)
 
-	- cp ~/.bash_profile ~/.bash_profile_old
-	- cp ~/.bashrc ~/.bashrc_old
-	- cp ~/.gitconfig ~/.gitconfig_old
+	cp ~/.bash_profile ~/.bash_profile_old
+	cp ~/.bashrc ~/.bashrc_old
+	cp ~/.gitconfig ~/.gitconfig_old
 
 4. Create symlinks to the new dotfiles
 
-	- ln -s ~/.bash_profile /your/path/to/.bash_profile
-	- ln -s ~/.bashrc /your/path/to/.bashrc
-	- ln -s ~/.gitconfig /your/path/to/.gitconfig
-	- ln -s ~/.gitignore /your/path/to/.gitignore
-	- ln -s ~/.hushlogin /your/path/to/.hushlogin
+	ln -s ~/.bash_profile /your/path/to/.bash_profile
+	ln -s ~/.bashrc /your/path/to/.bashrc
+	ln -s ~/.gitconfig /your/path/to/.gitconfig
+	ln -s ~/.gitignore /your/path/to/.gitignore
+	ln -s ~/.hushlogin /your/path/to/.hushlogin
 
 5. Open a new iTerm tab!
 
@@ -56,6 +56,6 @@ If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce
 	- Switch to the non-bold font by unchecking "Draw bold text in bold font" in iTerm Preferences > Profiles > Default > Text > Text Rendering.
 	- Lighter blue for the directory highlighting. iTerm Preferences > Profiles > Default > Colors > click Blue and make it lighter.
 
-For more detailed info on how everything's configured, see my blog post: [Creating Bashstrap](http://barryclark.co)
+#### See my blog post [Creating Bashstrap](http://barryclark.co) for more detailed info on how everything's configured. 
 
 I'm no expert at terminal customization, I'd love to learn more. Comments and pull requests are really welcomed!
