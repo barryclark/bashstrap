@@ -1,7 +1,5 @@
-Bashstrap
-=========
-
-**Love your terminal**
+Bashstrap - Love your terminal
+==============================
 
 If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce it up, and provides a solid foundation for customizing your dotfiles.
 
@@ -32,17 +30,17 @@ If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce
 
 3. Back up your current dotfiles (optional)
 
-	cp ~/.bash_profile ~/.bash_profile_old
-	cp ~/.bashrc ~/.bashrc_old
-	cp ~/.gitconfig ~/.gitconfig_old
+		cp ~/.bash_profile ~/.bash_profile_old
+		cp ~/.bashrc ~/.bashrc_old
+		cp ~/.gitconfig ~/.gitconfig_old
 
 4. Create symlinks to the new dotfiles
 
-	ln -s ~/.bash_profile /your/path/to/.bash_profile
-	ln -s ~/.bashrc /your/path/to/.bashrc
-	ln -s ~/.gitconfig /your/path/to/.gitconfig
-	ln -s ~/.gitignore /your/path/to/.gitignore
-	ln -s ~/.hushlogin /your/path/to/.hushlogin
+		ln -s ~/.bash_profile /your/path/to/.bash_profile
+		ln -s ~/.bashrc /your/path/to/.bashrc
+		ln -s ~/.gitconfig /your/path/to/.gitconfig
+		ln -s ~/.gitignore /your/path/to/.gitignore
+		ln -s ~/.hushlogin /your/path/to/.hushlogin
 
 5. Open a new iTerm tab!
 
