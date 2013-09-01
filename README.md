@@ -1,4 +1,4 @@
-Bashstrap - Love your terminal
+Bashstrap - love your terminal
 ==============================
 
 If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce it up, and provides a solid foundation for customizing your dotfiles.
@@ -22,19 +22,31 @@ If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce
 	- Open your current directory in Sublime Text
 	- Lots of quick shortcut aliases that I use for git and moving around directories
 
-### Installation
+### Installation - To your home dir (quick/easy)
 
-1. [Install iTerm](http://www.iterm2.com/#/section/downloads)
+1. Back up your dotfiles:
 
-2. Clone this repo to wherever you want, I keep mine in ~/Code/dotfiles. 
+		mv ~/.bash_profile ~/.bash_profile_backup
+		mv ~/.bashrc ~/.bashrc_backup
+		mv ~/.gitconfig ~/.gitconfig_backup
 
-3. Back up your current dotfiles (optional)
+2. Clone to your home dir:
+
+		git clone git@github.com:barryclark/bashstrap.git
+
+3. [Install iTerm](http://www.iterm2.com/#/section/downloads)
+
+### Installation - To a folder (slightly longer) 
+
+1. Clone this repo to wherever you want, I keep mine in ~/Code/dotfiles. 
+
+2. Back up your current dotfiles (optional)
 
 		cp ~/.bash_profile ~/.bash_profile_old
 		cp ~/.bashrc ~/.bashrc_old
 		cp ~/.gitconfig ~/.gitconfig_old
 
-4. Create symlinks to the new dotfiles
+3. Create symlinks to the new dotfiles
 
 		ln -s ~/.bash_profile /your/path/to/.bash_profile
 		ln -s ~/.bashrc /your/path/to/.bashrc
@@ -42,7 +54,7 @@ If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce
 		ln -s ~/.gitignore /your/path/to/.gitignore
 		ln -s ~/.hushlogin /your/path/to/.hushlogin
 
-5. Open a new iTerm tab!
+4. [Install iTerm](http://www.iterm2.com/#/section/downloads)
 
 ### Additional instructions
 

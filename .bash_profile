@@ -105,4 +105,4 @@ export PS2="\[$ORANGE\]→ \[$RESET\]"
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # init z! (https://github.com/rupa/z)
-. ~/Code/dotfiles/z.sh
+. ~/z.sh
