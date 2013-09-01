@@ -32,6 +32,7 @@ If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce
 
 2. Clone to your home dir:
 
+		cd ~
 		git clone git@github.com:barryclark/bashstrap.git .
 
 3. [Install iTerm](http://www.iterm2.com/#/section/downloads)
