@@ -32,13 +32,16 @@ If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce
 
 2. Clone to your home dir:
 
-		git clone git@github.com:barryclark/bashstrap.git
+		git clone git@github.com:barryclark/bashstrap.git .
 
 3. [Install iTerm](http://www.iterm2.com/#/section/downloads)
 
 ### Installation - To a folder (slightly longer) 
 
 1. Clone this repo to wherever you want, I keep mine in ~/Code/dotfiles. 
+
+		cd ~/your/dir
+		git clone git@github.com:barryclark/bashstrap.git .
 
 2. Back up your current dotfiles (optional)
 
