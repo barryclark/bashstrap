@@ -1,26 +1,29 @@
-Bashstrap - love your terminal
-==============================
+Bashstrap
+=========
 
-If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce it up, and provides a solid foundation for customizing your dotfiles.
+Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds in timesaving features, and provides a solid foundation for customizing your dotfiles.
 
 <img src="https://raw.github.com/barryclark/bashstrap/master/screenshot.png" alt="screenshot" />
 
 ### Feature list
 
-- Beautiful, minimalist color scheme
-	- Colored 'ls'
-	- Syntax highlighted 'cat'
+**Faster directory navigation**
 
-- Customized bash prompt line
-	- Stripped out of a lot of extraneous text 
-	- In line Git branch status
-	- An easily customizable symbol (⚡ ahoy!)
+- Jump directories extremely quickly without having to set aliases, using Z (one of my favorite features!)
+- Open your current directory in Sublime Text
+- Tab bar displays your current directory
+- Lots of quick shortcut aliases that I use for git and moving around directories
 
-- Faster directory navigation
-	- Z, for jumping directories extremely quickly without having to set aliases (one of my favorite features!)
-	- Tab bar displays the directory that you're in
-	- Open your current directory in Sublime Text
-	- Lots of quick shortcut aliases that I use for git and moving around directories
+**Customized bash prompt line**
+
+- Git branch status inline
+- ⚡ ahoy! An easily customizable symbol 
+- Stripped out extraneous text 	
+
+**Updated color scheme**
+
+- Colored 'ls'
+- Syntax highlighted 'cat'
 
 ### Installation - To your home dir (quick/easy)
 
@@ -70,6 +73,6 @@ If you're still using the stock OSX terminal, Bashstrap is a quick way to spruce
 	- Switch to the non-bold font by unchecking "Draw bold text in bold font" in iTerm Preferences > Profiles > Default > Text > Text Rendering.
 	- Lighter blue for the directory highlighting. iTerm Preferences > Profiles > Default > Colors > click Blue and make it lighter.
 
-#### See my blog post [Creating Bashstrap](http://barryclark.co) for more detailed info on how everything's configured. 
+#### See my blog post [Creating Bashstrap](http://barryclark.co/creating-bashstrap) for more details on how everything's configured. 
 
-I'm no expert at terminal customization, I'd love to learn more. Comments and pull requests are really welcomed!
+I'm no expert at terminal customization, I'd love to learn more. Comments and pull requests are welcomed.
