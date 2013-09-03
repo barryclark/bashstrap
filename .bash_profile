@@ -1,7 +1,8 @@
 ### Aliases
 
-# Open the current dir of files in Sublime Text
-alias s='open -a "Sublime Text 2"'
+# Open specified files in Sublime Text
+# "s ." will open the current directory in Sublime
+alias s='open -a "Sublime Text"'
 
 # Color LS
 colorflag="-G"
