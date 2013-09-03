@@ -25,7 +25,7 @@ Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds 
 - Colored 'ls'
 - Syntax highlighted 'cat'
 
-### Installation - To your home dir (quick/easy)
+### Installation - To your home dir (quick/simple)
 
 1. Back up your dotfiles:
 
@@ -33,14 +33,13 @@ Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds 
 		mv ~/.bashrc ~/.bashrc_backup
 		mv ~/.gitconfig ~/.gitconfig_backup
 
-2. Clone to your home dir:
+2. Copy into your home dir:
 
-		cd ~
-		git clone git@github.com:barryclark/bashstrap.git .
+		cd; curl -#L https://github.com/barryclark/bashstrap/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,screenshot.png}
 
 3. [Install iTerm](http://www.iterm2.com/#/section/downloads)
 
-### Installation - To a folder (slightly longer) 
+### Installation - To a folder (advanced) 
 
 1. Clone this repo to wherever you want, I keep mine in ~/Code/dotfiles. 
 
