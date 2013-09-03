@@ -1,7 +1,7 @@
 Bashstrap
 =========
 
-Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds in timesaving features, and provides a solid foundation for customizing your dotfiles.
+Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds in timesaving features, and provides a solid foundation for customizing your dotfiles and terminal style.
 
 <img src="https://raw.github.com/barryclark/bashstrap/master/screenshot.png" alt="screenshot" />
 
@@ -48,6 +48,4 @@ Following these steps will make your iTerm look identical to mine in the screens
 5. Lighter blue for the directory highlighting: *iTerm Preferences > Profiles > Default > Colors > click Blue and make it lighter*
 6. Make default window size bigger: *iTerm Preferences > Profiles > Default > Window > Setting for New Windows > I like Columns: 80, Rows 28*
 
-### For more on configuring Bashstrap, see my blog post [Creating Bashstrap](http://barryclark.co/creating-bashstrap). 
-
-Includes information on 
+### For more on configuring Bashstrap, see my blog post: [Creating Bashstrap](http://barryclark.co/creating-bashstrap)
