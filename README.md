@@ -17,7 +17,7 @@ Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds 
 **Customized bash prompt line**
 
 - Git branch status inline
-- ⚡ ahoy! An easily customizable symbol 
+- ☠ ahoy! An easily customizable symbol 
 - Stripped out extraneous text 	
 
 **Updated color scheme**
@@ -48,4 +48,6 @@ Following these steps will make your iTerm look identical to mine in the screens
 5. Lighter blue for the directory highlighting: *iTerm Preferences > Profiles > Default > Colors > click Blue and make it lighter*
 6. Make default window size bigger: *iTerm Preferences > Profiles > Default > Window > Setting for New Windows > I like Columns: 80, Rows 28*
 
-#### For more on configuring Bashstrap, including installing dotfiles to a folder and linking to them from your home dir, see my blog post [Creating Bashstrap](http://barryclark.co/creating-bashstrap). 
+### For more on configuring Bashstrap, see my blog post [Creating Bashstrap](http://barryclark.co/creating-bashstrap). 
+
+Includes information on 
