@@ -1,40 +1,22 @@
+# Set architecture flags
+export ARCHFLAGS="-arch x86_64"
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=20000
+
+### Exports
+#I highly recommend installing ``brew install binutils gnu-sed coreutils`` 
+#to replace the crappy shipped OSX versions with standardized ones
+# Ensure user-installed bins take precedence
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home" 
+
 ### Aliases
-
-# Open specified files in Sublime Text
-# "s ." will open the current directory in Sublime
-alias s='open -a "Sublime Text"'
-
-# Color LS
-colorflag="-G"
-alias ls="command ls ${colorflag}"
-alias l="ls -lF ${colorflag}" # all files, in long format
-alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
-alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
-
-# Quicker navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
-# Shortcuts to my Code folder in my home directory
-alias code="cd ~/Code"
-alias sites="cd ~/Code/sites"
-
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
-
-# Colored up cat!
-# You must install Pygments first - "sudo easy_install Pygments"
-alias c='pygmentize -O style=monokai -f console256 -g'
-
-# Git 
-# You must install Git first - ""
-alias gs='git status'
-alias ga='git add .'
-alias gc='git commit -m' # requires you to type a commit message
-alias gp='git push'
-
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 ### Prompt Colors 
 # Modified version of @gf3’s Sexy Bash Prompt 
@@ -99,11 +81,43 @@ symbol="⚡ "
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
+### Autocompleters
+
+#brew autocomplete 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# /etc/profile.d/complete-hosts.sh
+# Autocomplete Hostnames for SSH etc.
+# by Jean-Sebastien Morisset (http://surniaulula.com/)
+_complete_hosts () {
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    host_list=`{ 
+        for c in /etc/ssh_config /etc/ssh/ssh_config ~/.ssh/config
+        do [ -r $c ] && sed -n -e 's/^Host[[:space:]]//p' -e 's/^[[:space:]]*HostName[[:space:]]//p' $c
+        done
+        for k in /etc/ssh_known_hosts /etc/ssh/ssh_known_hosts ~/.ssh/known_hosts
+        do [ -r $k ] && egrep -v '^[#\[]' $k|cut -f 1 -d ' '|sed -e 's/[,:].*//g'
+        done
+        sed -n -e 's/^[0-9][0-9\.]*//p' /etc/hosts; }|tr ' ' '\n'|grep -v '*'`
+    COMPREPLY=( $(compgen -W "${host_list}" -- $cur))
+    return 0
+}
+complete -F _complete_hosts ssh
+complete -F _complete_hosts host
+
+#AWS CLI autocomplete - uncomment if you use
+#complete -C aws_completer aws
 
 ### Misc
 
 # Only show the current directory's name in the tab 
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+
+#find symlinks recursive
+function findlinks() { find $@ -type l -exec ls -l {} \;;}
 
 # init z! (https://github.com/rupa/z)
 . ~/z.sh
