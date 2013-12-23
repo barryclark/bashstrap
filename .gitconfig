@@ -1,5 +1,5 @@
 [alias]
-	# TBC
+	lol = !git log --graph --oneline --date-order --decorate --color --all -n 250
 [core]
 	# Use custom `.gitignore`
 	excludesfile = ~/.gitignore
