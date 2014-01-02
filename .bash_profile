@@ -4,12 +4,19 @@
 # "s ." will open the current directory in Sublime
 alias s='open -a "Sublime Text"'
 
-# Color LS
-colorflag="-G"
-alias ls="command ls ${colorflag}"
-alias l="ls -lF ${colorflag}" # all files, in long format
-alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
-alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
+# Colour LS
+alias ls="command ls -lahFG"
+
+# Colour Tree
+# You must install tree first - "brew install tree"
+alias tree='tree -aldCL 2 --dirsfirst'
+
+# Colour grep
+export GREP_OPTIONS='--color=auto'
+
+# Macvim
+# You must install mvim first - "brew install mvim"
+alias vim='mvim -v'
 
 # Quicker navigation
 alias ..="cd .."
@@ -17,9 +24,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-# Shortcuts to my Code folder in my home directory
-alias code="cd ~/Code"
-alias sites="cd ~/Code/sites"
+# Shortcut to my Development folder in my home directory
+alias dev="cd ~/Development"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
@@ -47,29 +53,30 @@ fi
 
 if tput setaf 1 &> /dev/null; then
 	tput sgr0
-	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
-		BLACK=$(tput setaf 190)
-		MAGENTA=$(tput setaf 9)
-		ORANGE=$(tput setaf 172)
-		GREEN=$(tput setaf 190)
-		PURPLE=$(tput setaf 141)
-		WHITE=$(tput setaf 0)
-	else
-		BLACK=$(tput setaf 190)
-		MAGENTA=$(tput setaf 5)
-		ORANGE=$(tput setaf 4)
-		GREEN=$(tput setaf 2)
-		PURPLE=$(tput setaf 1)
-		WHITE=$(tput setaf 7)
-	fi
+	BLACK=$(tput setaf 190)
+	MAGENTA=$(tput setaf 5)
+	ORANGE=$(tput bold; tput setaf 172)
+	GREEN=$(tput setaf 2)
+    LIGHT_GREEN=$(tput bold; tput setaf 2)
+    BLUE=$(tput setaf 4)
+    LIGHT_BLUE=$(tput bold; tput setaf 4)
+    YELLOW=$(tput bold; tput setaf 3)
+	PURPLE=$(tput setaf 1)
+    PINK=$(tput bold; tput setaf 5)
+	WHITE=$(tput setaf 7)
 	BOLD=$(tput bold)
 	RESET=$(tput sgr0)
 else
 	BLACK="\033[01;30m"
 	MAGENTA="\033[1;31m"
 	ORANGE="\033[1;33m"
-	GREEN="\033[1;32m"
+	GREEN="\033[0;32m"
+    LIGHT_GREEN="\033[1;32m"
+    BLUE="\033[0;34m"
+    LIGHT_BLUE="\033[1;34m"
+    YELLOW="\033[0;33m"
 	PURPLE="\033[1;35m"
+    PINK="\033[0;35m"
 	WHITE="\033[1;37m"
 	BOLD=""
 	RESET="\033[m"
@@ -79,7 +86,12 @@ export BLACK
 export MAGENTA
 export ORANGE
 export GREEN
+export LIGHT_GREEN
+export BLUE
+export LIGHT_BLUE
+export YELLOW
 export PURPLE
+export PINK
 export WHITE
 export BOLD
 export RESET
@@ -96,7 +108,9 @@ function parse_git_branch() {
 # (http://en.wikipedia.org/wiki/Unicode_symbols)
 symbol="⚡ "
 
+export PS1='\[\033[0;32m\]\u\[\033[1;32m\]@\[\033[1;34m\]\h\[\033[1;32m\]:\[\033[0;33m\]\W \[\033[0;35m\]\$ \[\033[00m\]'
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
+export PS1="\[${GREEN}\]\u\[${LIGHT_GREEN}\]@\[${LIGHT_BLUE}\]\h\[${LIGHT_GREEN}\]:\[${YELLOW}\]\W \[${ORANGE}\]\$ \$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 
