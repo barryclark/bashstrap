@@ -5,7 +5,7 @@
 alias s='open -a "Sublime Text"'
 
 # Colour LS
-alias ls="command ls -lahFG --color=auto"
+alias ls="command ls -lahFG"
 
 # Colour Tree
 # You must install tree first - "brew install tree"
