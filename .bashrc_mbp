@@ -90,6 +90,6 @@ export PS2="\[$ORANGE\]→\[$RESET\]"
 
 
 ### Misc
-
+SHORTHOSTNAME=$(scutil --get LocalHostName)
 # Only show the current directory's name in the tab 
-export PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}:${PWD##*/}\007"'
+export PROMPT_COMMAND='echo -ne "\033]0;${SHORTHOSTNAME}:${PWD##*/}\007"'
