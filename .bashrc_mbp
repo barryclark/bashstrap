@@ -97,7 +97,7 @@ export PS1="\[${GREEN}\]\u\[${LIGHT_GREEN}\]@\[${LIGHT_BLUE}\]\h\[${LIGHT_GREEN}
 export PS2="\[$ORANGE\]→\[$RESET\]"
 
 cdl () {
-    cd $1 && ls
+    cd $1 && ls -lahFG
 }
 
 ### Misc
