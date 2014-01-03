@@ -96,6 +96,9 @@ symbol="👾  "
 export PS1="\[${GREEN}\]\u\[${LIGHT_GREEN}\]@\[${LIGHT_BLUE}\]\h\[${LIGHT_GREEN}\]:\[${YELLOW}\]\w\[${PURPLE}\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" [\")\$(parse_git_branch)\$([[ -n \$(git branch 2> /dev/null) ]] && echo \"]\")\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→\[$RESET\]"
 
+cdl () {
+    cd $1 && ls
+}
 
 ### Misc
 SHORTHOSTNAME=$(hostname | cut -f1 -d".")
