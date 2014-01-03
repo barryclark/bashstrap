@@ -29,7 +29,7 @@ alias sudo='sudo '
 
 # Colored up cat!
 # You must install Pygments first - "sudo easy_install Pygments"
-alias c='pygmentize -O style=monokai -f console256 -g'
+alias cat='pygmentize -O style=monokai -f console256 -g'
 
 # Git 
 # You must install Git first - ""
