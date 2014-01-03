@@ -93,7 +93,7 @@ symbol="👾  "
 # original bashstrap one for reference
 #export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
 
-export PS1="\[${GREEN}\]\u\[${LIGHT_GREEN}\]@\[${LIGHT_BLUE}\]\h\[${LIGHT_GREEN}\] in \[${YELLOW}\]\w\$([[ -n \$(git branch 2> /dev/null) ]] && echo \"\[${LIGHT_GREEN}\] on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n$symbol\[$RESET\]"
+export PS1="\[${GREEN}\]\u\[${LIGHT_GREEN}\]@\[${LIGHT_BLUE}\]\h\[${LIGHT_GREEN}\]:\[${YELLOW}\]\w\[${PURPLE}\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" [\")\$(parse_git_branch)\$([[ -n \$(git branch 2> /dev/null) ]] && echo \"]\")\[$WHITE\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→\[$RESET\]"
 
 
