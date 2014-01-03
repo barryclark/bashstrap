@@ -4,4 +4,6 @@
 
 [[ -r ~/.bashrc_mbp ]] && . ~/.bashrc_mbp
 [[ -r ~/.bash_aliases ]] && . ~/.bash_aliases
-[[ -r ~/.bash_system_specific ]] && . ~/.bash_system_specific
+
+# System specific changes go here:
+[[ -r ~/.bashrc_local ]] && . ~/.bashrc_local
