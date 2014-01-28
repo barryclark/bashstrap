@@ -17,8 +17,8 @@ Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds 
 **Customized bash prompt line**
 
 - Git branch status inline
-- ☠ ahoy! An easily customizable symbol 
-- Stripped out extraneous text 	
+- ☠ ahoy! An easily customizable symbol
+- Stripped out extraneous text
 
 **Updated color scheme**
 

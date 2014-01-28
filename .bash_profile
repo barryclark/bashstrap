@@ -28,7 +28,7 @@ alias sudo='sudo '
 # You must install Pygments first - "sudo easy_install Pygments"
 alias c='pygmentize -O style=monokai -f console256 -g'
 
-# Git 
+# Git
 # You must install Git first - ""
 alias gs='git status'
 alias ga='git add .'
@@ -36,8 +36,8 @@ alias gc='git commit -m' # requires you to type a commit message
 alias gp='git push'
 
 
-### Prompt Colors 
-# Modified version of @gf3’s Sexy Bash Prompt 
+### Prompt Colors
+# Modified version of @gf3’s Sexy Bash Prompt
 # (https://github.com/gf3/dotfiles)
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM=gnome-256color
@@ -92,7 +92,7 @@ function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-# Change this symbol to something sweet. 
+# Change this symbol to something sweet.
 # (http://en.wikipedia.org/wiki/Unicode_symbols)
 symbol="⚡ "
 
@@ -102,7 +102,7 @@ export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 ### Misc
 
-# Only show the current directory's name in the tab 
+# Only show the current directory's name in the tab
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # init z! (https://github.com/rupa/z)
