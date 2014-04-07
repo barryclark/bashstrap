@@ -1,5 +1,9 @@
 ### Aliases
 
+# Map up & down arrow keys to do fuzzy history search
+bind '"[A":history-search-backward'
+bind '"[B":history-search-forward'
+
 # Open specified files in Sublime Text
 # "s ." will open the current directory in Sublime
 alias s='open -a "Sublime Text"'
@@ -9,6 +13,7 @@ colorflag="-G"
 alias ls="command ls ${colorflag}"
 alias l="ls -lF ${colorflag}" # all files, in long format
 alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
+alias ll="ls -laF ${colorflag}" # all files inc dotfiles, in long format
 alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
 
 # Quicker navigation
@@ -17,9 +22,16 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-# Shortcuts to my Code folder in my home directory
-alias code="cd ~/Code"
-alias sites="cd ~/Code/sites"
+# Shortcuts to misc folders
+alias h="cd ~/"
+alias d="cd ~/Downloads"
+alias a="cd /apps"
+alias wa="cd /apps/webapps"
+alias code="cd /apps/code"
+alias conf="cd /apps/config"
+
+# Other helpful shortcuts for misc commands
+alias p="ping -c 5"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
@@ -30,10 +42,15 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 # Git
 # You must install Git first - ""
-alias gs='git status'
 alias ga='git add .'
 alias gc='git commit -m' # requires you to type a commit message
 alias gp='git push'
+alias gs='git status'
+alias gbranch='git branch'
+alias gclone='git clone'
+alias gpull='git pull'
+alias gfetch='git fetch'
+alias gremote='git remote'
 
 
 ### Prompt Colors
@@ -107,3 +124,7 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # init z! (https://github.com/rupa/z)
 . ~/z.sh
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+source ~/.profile
