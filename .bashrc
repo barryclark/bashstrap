@@ -1,6 +1,6 @@
-# Pull latest bash files from Dropbox and load if present
-[[ -r ~/Dropbox/.bash/.bashrc_mbp ]] && cp ~/Dropbox/.bash/.bashrc_mbp ~/.bashrc_mbp
-[[ -r ~/Dropbox/.bash/.bash_aliases ]] && cp ~/Dropbox/.bash/.bash_aliases ~/.bash_aliases
+# Pull latest bash files from Drive and load if present
+[[ -r ~/Drive/.bash/.bashrc_mbp ]] && cp ~/Drive/.bash/.bashrc_mbp ~/.bashrc_mbp
+[[ -r ~/Drive/.bash/.bash_aliases ]] && cp ~/Drive/.bash/.bash_aliases ~/.bash_aliases
 
 [[ -r ~/.bashrc_mbp ]] && . ~/.bashrc_mbp
 [[ -r ~/.bash_aliases ]] && . ~/.bash_aliases

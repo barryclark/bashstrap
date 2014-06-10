@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# check args
+if [ "x$1" == "x" ] ; then
+    echo "  $(tput bold)Usage: summon $(tput setaf 4)filename$(tput sgr0)"
+else
+    touch "$1" && open -a "Sublime Text" "$1"
+fi

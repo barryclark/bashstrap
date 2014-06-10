@@ -7,6 +7,7 @@
 #	export TERM=xterm-256color
 #fi
 
+
 if tput setaf 1 &> /dev/null; then
 	tput sgr0
 	BLACK=$(tput setaf 190)
@@ -100,7 +101,26 @@ cdl () {
     cd $1 && ls -lahFG
 }
 
+#andy.stanton.is rsync
+alias to-you-dr='rsync -raz --progress --update . arx:/data/sites/andy.stanton.is --dry-run --exclude "writing/content/data/" --exclude "writing/node_modules/"'
+alias to-you='rsync -raz --progress --update . arx:/data/sites/andy.stanton.is --exclude "writing/content/data/" --exclude "writing/node_modules/"'
+alias to-me-dr='rsync -raz --progress --update arx:/data/sites/andy.stanton.is/ . --dry-run --exclude "writing/node_modules/"'
+alias to-me='rsync -raz --progress --update arx:/data/sites/andy.stanton.is/ . --exclude "writing/node_modules/"'
+
 ### Misc
 SHORTHOSTNAME=$(hostname | cut -f1 -d".")
 # Only show the current directory's name in the tab 
 export PROMPT_COMMAND='echo -ne "\033]0;${SHORTHOSTNAME}:${PWD##*/}\007"'
+export DOCKER_HOST=tcp://
+
+
+#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+#export PYENV_ROOT=/usr/local/opt/pyenv
+#export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+#export VERSIONER_PYTHON_PREFER_32_BIT=yes
+#alias py='VERSIONER_PYTHON_PREFER_32_BIT=yes; arch -i386 python'
+
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
