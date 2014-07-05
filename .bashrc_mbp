@@ -120,6 +120,8 @@ export DOCKER_HOST=tcp://
 #export VERSIONER_PYTHON_PREFER_32_BIT=yes
 #alias py='VERSIONER_PYTHON_PREFER_32_BIT=yes; arch -i386 python'
 
+export NO_PROXY=localhost,127.0.0.1,192.168.59.103
+
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion

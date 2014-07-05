@@ -15,15 +15,13 @@ alias ls="command ls -lahFG"
 # You must install tree first - "brew install tree"
 alias tree='tree -aldCL 2 --dirsfirst'
 
-# Macvim
-# You must install mvim first - "brew install mvim"
-#alias vim='mvim -v'
-
 # Quicker navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
 
 # Shortcut to my Development folder in my home directory
 alias dev="cd ~/Development"
@@ -49,3 +47,9 @@ alias clip="perl -i -pe 'chomp if eof' | pbcopy"
 alias j8=JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home
 alias j7=JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
 alias j6=JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+
+alias myip='curl cyniq.com/ip -s -w "\n"'
+alias copymyip='myip | clip && echo "Current IP address `myip` copied to clipboard"'
+
+alias marx='sshfs arx:/ /mnt/arx'
+alias umarx='umount /mnt/arx'
