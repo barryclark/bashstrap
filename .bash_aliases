@@ -51,5 +51,6 @@ alias j6=JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/H
 alias myip='curl cyniq.com/ip -s -w "\n"'
 alias copymyip='myip | clip && echo "Current IP address `myip` copied to clipboard"'
 
-alias marx='sshfs arx:/ /mnt/arx'
-alias umarx='umount /mnt/arx'
+alias marx='sudo mkdir -p /Volumes/arx && sudo chown stanta01 /Volumes/arx && sshfs arx:/data/sites /Volumes/arx'
+alias umarx='umount /Volumes/arx'
+
