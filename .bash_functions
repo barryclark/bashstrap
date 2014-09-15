@@ -1,4 +1,4 @@
-# Takes a filename (relative or absolute) and strips the path.
+# Takes a filename (relative or absolute) and strips the extension.
 # Usage:
 #   strip_extension ./hello.world.txt
 # Output:
