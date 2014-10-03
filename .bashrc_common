@@ -50,28 +50,26 @@ export WHITE
 export BOLD
 export RESET
 
-ps1_builder="${GREEN}\]\u${LIGHT_GREEN}@${LIGHT_BLUE}\h${LIGHT_GREEN}:${YELLOW}\w${RESET}"
+ps1_builder="\[${GREEN}\]\u\[${LIGHT_GREEN}\]@\[${LIGHT_BLUE}\]\h\[${LIGHT_GREEN}\]:\[${YELLOW}\]\w\[${RESET}\]"
 ps1_symbol="👾  "
 
 if [ -x "$(which git)" ]; then
 
-  # Git branch details
   function parse_git_dirty() {
     [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
   }
+
   function parse_git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
   }
 
-  ps1_builder="${ps1_builder}${PURPLE}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" [\")\$(parse_git_branch)\$([[ -n \$(git branch 2> /dev/null) ]] && echo \"]\")${RESET}"
+  ps1_builder="${ps1_builder}\[${PURPLE}\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" [\")\$(parse_git_branch)\$([[ -n \$(git branch 2> /dev/null) ]] && echo \"]\")\[${RESET}\]"
 
 fi
 
-ps1_builder="${ps1_builder}\n${WHITE}${ps1_symbol}${RESET}"
+ps1_builder="${ps1_builder}\n\[${WHITE}\]${ps1_symbol}\[${RESET}\]"
 
 export PS1="$ps1_builder"
-export PS1="\[${GREEN}\]\u\[${LIGHT_GREEN}\]@\[${LIGHT_BLUE}\]\h\[${LIGHT_GREEN}\]:\[${YELLOW}\]\w\[${PURPLE}\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" [\")\$(parse_git_branch)\$([[ -n \$(git branch 2> /dev/null) ]] && echo \"]\")\[$WHITE\]\n$ps1_symbol\[$RESET\]"
-
 
 if [[ $OSTYPE == darwin* ]]; then
 
