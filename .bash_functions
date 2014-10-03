@@ -1,21 +1,21 @@
 # Takes a filename (relative or absolute) and strips the extension.
 # Usage:
-#   strip_extension ./hello.world.txt
+#   _strip_extension ./hello.world.txt
 # Output:
 #   ./hello.world
 
-function strip_extension() {
+function _strip_extension() {
     echo $(echo $1 | sed -E "s/\.[[:alnum:]]*$//");
 }
 
 
 # Takes a file name and appends an extension.
 # Usage:
-#   append_extensions ./hello.world txt
+#   _append_extensions ./hello.world txt
 # Output:
 #   ./hello.world.txt
 
-function append_extension() {
+function _append_extension() {
     echo "$1.$2"
 }
 
@@ -24,19 +24,19 @@ function append_extension() {
 # not the file extension is added. This allows it to be quickly used with
 # tab completion in the event an executable has already been generated.
 # Usage:
-#   _c_family_exe $1 rs rustc
-#   _c_family_exe $1 cpp c++
+#   _exe_c_family $1 rs rustc
+#   _exe_c_family $1 cpp c++
 
-function _c_family_exe() {
+function _exe_c_family() {
     srcfile=$1
     binfile=$1
     extension=$2
 
     if [[ $1 =~ ".$extension" ]]; then
         srcfile=$1
-        binfile=$(strip_extension $1)
+        binfile=$(_strip_extension $1)
     else
-        srcfile=$(append_extension $1 $extension)
+        srcfile=$(_append_extension $1 $extension)
         binfile=$1
     fi
 
@@ -50,7 +50,7 @@ function _c_family_exe() {
 #   exerust hello-world
 
 function exerust() {
-    _c_family_exe $1 "rs" rustc
+    _exe_c_family $1 "rs" rustc
 }
 
 
@@ -59,8 +59,8 @@ function exerust() {
 #   exec++ hello-world.cpp
 #   exec++ hello-world
 
-function exec++() {
-    _c_family_exe $1 "cpp" c++
+function execpp() {
+    _exe_c_family $1 "cpp" c++
 }
 
 
@@ -81,12 +81,12 @@ function exejava() {
 
     if [[ $1 == *".$srcextension" ]]; then
         srcfile=$1
-        binfile=$(strip_extension $1)
+        binfile=$(_strip_extension $1)
     elif [[ $1 == *. ]] || [[ $1 == *".$binextension" ]]; then
-        binfile=$(strip_extension $1)
-        srcfile=$(append_extension $binfile $srcextension)
+        binfile=$(_strip_extension $1)
+        srcfile=$(_append_extension $binfile $srcextension)
     else
-        srcfile=$(append_extension $1 $srcextension)
+        srcfile=$(_append_extension $1 $srcextension)
         binfile=$1
     fi
     javac $srcfile && java $binfile
