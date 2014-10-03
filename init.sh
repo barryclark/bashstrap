@@ -100,10 +100,6 @@ function install_conditionals() {
       git config --global push.default "simple"
     fi
 
-  else
-
-    echo "no git available"
-
   fi
 
 }
