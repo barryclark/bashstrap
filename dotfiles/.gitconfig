@@ -1,5 +1,3 @@
-[alias]
-	# TBC
 [core]
 	# Use custom `.gitignore`
 	excludesfile = ~/.gitignore
