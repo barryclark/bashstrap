@@ -85,7 +85,7 @@ if [[ $OSTYPE == darwin* ]]; then
 
 elif [[ $OSTYPE == "linux-gnu" ]]; then
 
-  short_host_name=$(scutil --get LocalHostName)
+  short_host_name=$HOSTNAME
 
   if ! shopt -oq posix; then
     if [ -f /usr/share/bash-completion/bash_completion ]; then
