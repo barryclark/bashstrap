@@ -8,7 +8,6 @@ filelist=(
   .bash_functions
   .bash_profile
   .bashrc
-  .gitconfig
   .gitignore
   .profile
   .vimrc
@@ -74,6 +73,35 @@ function install_bashstrap() {
 
 function install_conditionals() {
 
+  if [[ -x git ]]; then
+    git_version=$(git --version | awk '{print $3}')
+    git_major_version=awk '{ split($0,a,".");print a[1] }' <<< ${git_version}
+
+    git config --global core.excludesfile "~/.gitignore"
+    git config --global core.whitespace "space-before-tab,indent-with-non-tab,trailing-space"
+
+    git config --global color.ui "auto"
+
+    git config --global color.branch.current "yellow reverse"
+    git config --global color.branch.local "yellow"
+    git config --global color.branch.remote "green"
+
+    git config --global color.diff.meta "yellow bold"
+    git config --global color.diff.frag "magenta bold"
+    git config --global color.diff.old "red bold"
+    git config --global color.diff.new "green bold"
+
+    git config --global color.status.added "yellow"
+    git config --global color.status.changed "green"
+    git config --global color.status.untracked "cyan"
+
+    if [[ git_major_version >= 2 ]]; then
+      echo "simple available"
+      git config --global push "simple"
+    else
+      echo "simple unavailable"
+    fi
+  fi
 
 }
 
