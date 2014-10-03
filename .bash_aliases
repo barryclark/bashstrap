@@ -1,13 +1,12 @@
-### Aliases
+# ---------------------------------------------------------------------------- #
+# General Aliases
+# ---------------------------------------------------------------------------- #
 
-# Enable aliases to be sudo’ed
 alias sudo='sudo '
-
 alias dev="cd ~/Development"
 alias s='open -a "Sublime Text"'
 alias tree='tree -aldCL 2 --dirsfirst'
 
-# Quicker navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -18,7 +17,9 @@ alias ........="cd ../../../../../../.."
 alias .........="cd ../../../../../../../.."
 
 
-## OSX Specific
+# ---------------------------------------------------------------------------- #
+# OSX Aliases
+# ---------------------------------------------------------------------------- #
 
 if [[ $OSTYPE == darwin* ]]; then
 
@@ -33,7 +34,9 @@ if [[ $OSTYPE == darwin* ]]; then
 fi
 
 
-## Linux Specific
+# ---------------------------------------------------------------------------- #
+# Linux Aliases
+# ---------------------------------------------------------------------------- #
 
 if [[ $OSTYPE == "linux-gnu" ]]; then
 
@@ -42,15 +45,15 @@ if [[ $OSTYPE == "linux-gnu" ]]; then
 fi
 
 
-## Pygmentize specific
+# ---------------------------------------------------------------------------- #
+# App-specific Aliases
+# ---------------------------------------------------------------------------- #
 
 if [ -x "$(which pygmentize)" ]; then
 
     alias ccat='pygmentize -O style=monokai -f console256 -g'
 
 fi
-
-## Git specific
 
 if [ -x "$(which git)" ]; then
 
