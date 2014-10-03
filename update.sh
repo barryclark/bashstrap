@@ -50,10 +50,10 @@ function update_bashstrap() {
 
 function update_conditionals() {
 
-  if [[ -x git ]]; then
+  if [[ -x $(which git) ]]; then
 
     git_version=$(git --version | awk '{print $3}')
-    git_major_version=awk '{ split($0,a,".");print a[1] }' <<< ${git_version}
+    git_major_version=$(awk '{ split($0,a,".");print a[1] }' <<< ${git_version})
 
     git config --global core.excludesfile "~/.gitignore"
     git config --global core.whitespace "space-before-tab,indent-with-non-tab,trailing-space"
@@ -74,11 +74,13 @@ function update_conditionals() {
     git config --global color.status.untracked "cyan"
 
     if [ "$git_major_version" -ge "2" ]; then
-      echo "simple available"
-      git config --global push "simple"
-    else
-      echo "simple unavailable"
+      git config --global push.default "simple"
     fi
+
+  else
+
+    echo "no git available"
+
   fi
 
 }
