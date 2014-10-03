@@ -95,7 +95,7 @@ function install_conditionals() {
     git config --global color.status.changed "green"
     git config --global color.status.untracked "cyan"
 
-    if [[ git_major_version >= 2 ]]; then
+    if [ "$git_major_version" -ge "2" ]; then
       echo "simple available"
       git config --global push "simple"
     else
