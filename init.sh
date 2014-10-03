@@ -72,6 +72,11 @@ function install_bashstrap() {
 
 }
 
+function install_conditionals() {
+
+
+}
+
 preinstall_check
 
 echo "Initialising Bashstrap"
@@ -79,3 +84,5 @@ echo "Initialising Bashstrap"
 backup_existing
 
 install_bashstrap
+
+install_conditionals

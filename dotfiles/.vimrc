@@ -1,5 +1,8 @@
 syntax on
-filetype plugin indent on
+
+if exists(':filetype')
+    filetype plugin indent on
+endif
 
 set tabstop=4
 set shiftwidth=4
