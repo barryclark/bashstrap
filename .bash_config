@@ -1,4 +1,7 @@
-### Prompt Colors
+# ---------------------------------------------------------------------------- #
+# Prompt Colour Configuration
+# ---------------------------------------------------------------------------- #
+
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
   export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -50,8 +53,47 @@ export WHITE
 export BOLD
 export RESET
 
-ps1_builder="\[${GREEN}\]\u\[${LIGHT_GREEN}\]@\[${LIGHT_BLUE}\]\h\[${LIGHT_GREEN}\]:\[${YELLOW}\]\w\[${RESET}\]"
+
+# ---------------------------------------------------------------------------- #
+# OSX Configuration
+# ---------------------------------------------------------------------------- #
+
+if [[ $OSTYPE == darwin* ]]; then
+
+  short_host_name=$(hostname | cut -f1 -d".")
+
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+
+fi
+
+
+# ---------------------------------------------------------------------------- #
+# Linux Configuration
+# ---------------------------------------------------------------------------- #
+
+if [[ $OSTYPE == "linux-gnu" ]]; then
+
+  short_host_name=$HOSTNAME
+
+  if ! shopt -oq posix; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+      . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+      . /etc/bash_completion
+    fi
+  fi
+
+fi
+
+
+# ---------------------------------------------------------------------------- #
+# Prompt Configuration
+# ---------------------------------------------------------------------------- #
+
 ps1_symbol="👾  "
+ps1_builder="\[${GREEN}\]\u\[${LIGHT_GREEN}\]@\[${LIGHT_BLUE}\]\h\[${LIGHT_GREEN}\]:\[${YELLOW}\]\w\[${RESET}\]"
 
 if [ -x "$(which git)" ]; then
 
@@ -70,35 +112,4 @@ fi
 ps1_builder="${ps1_builder}\n\[${WHITE}\]${ps1_symbol}\[${RESET}\]"
 
 export PS1="$ps1_builder"
-
-if [[ $OSTYPE == darwin* ]]; then
-
-  short_host_name=$(hostname | cut -f1 -d".")
-
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-      . $(brew --prefix)/etc/bash_completion
-  fi
-
-
-elif [[ $OSTYPE == "linux-gnu" ]]; then
-
-  short_host_name=$HOSTNAME
-
-  if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-      . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-      . /etc/bash_completion
-    fi
-  fi
-
-else
-
-  echo "not osx"
-
-fi
-
-
-### Misc
-# Only show the current directory's name in the tab
 export PROMPT_COMMAND='echo -ne "\033]0;${short_host_name}:${PWD##*/}\007"'

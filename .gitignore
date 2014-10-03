@@ -1,13 +1,16 @@
-# Some sensible files to ignore 
-
-# Folder view configuration files
 .DS_Store
-Desktop.ini
-
-# Thumbnail cache files
-._*
-Thumbs.db
-
-# Files that might appear on external disks
+.DS_Store?
 .Spotlight-V100
 .Trashes
+._*
+Icon
+Desktop.ini
+
+Thumbs.db
+ehthumbs.db
+*.swp
+*.swo
+*.orig
+*~
+\#*\#
+tags
