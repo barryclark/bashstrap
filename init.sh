@@ -12,7 +12,6 @@ filelist=(
   .gitignore
   .profile
   .vimrc
-  asfas
 )
 
 function preinstall_check() {
