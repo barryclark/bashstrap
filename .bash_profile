@@ -26,9 +26,6 @@ alias .....="cd ../../../.."
 alias h="cd ~/"
 alias d="cd ~/Downloads"
 alias a="cd /apps"
-alias wa="cd /apps/webapps"
-alias code="cd /apps/code"
-alias conf="cd /apps/config"
 
 # Other helpful shortcuts for misc commands
 alias p="ping -c 5"
@@ -42,15 +39,14 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 # Git
 # You must install Git first - ""
+alias gs='git status'
 alias ga='git add .'
 alias gc='git commit -m' # requires you to type a commit message
 alias gp='git push'
-alias gs='git status'
-alias gbranch='git branch'
+alias gpo='git push origin master'
+alias gpl='git pull'
+alias gplo='git pull origin master'
 alias gclone='git clone'
-alias gpull='git pull'
-alias gfetch='git fetch'
-alias gremote='git remote'
 
 
 ### Prompt Colors
