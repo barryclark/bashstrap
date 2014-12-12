@@ -34,6 +34,8 @@ alias gs='git status'
 alias ga='git add .'
 alias gc='git commit -m' # requires you to type a commit message
 alias gp='git push'
+alias gpl='git pull'
+alias gft='git fetch'
 
 
 ### Prompt Colors
