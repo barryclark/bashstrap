@@ -34,7 +34,7 @@ alias gs='git status'
 alias ga='git add .'
 alias gc='git commit -m' # requires you to type a commit message
 alias gp='git push'
-
+alias grm='git rm $(git ls-files --deleted)'
 
 ### Prompt Colors
 # Modified version of @gf3’s Sexy Bash Prompt
