@@ -11,3 +11,9 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# Miscellaneous application config files
+.idea
+.sass-cache
+config.codekit
+vssver2.scc
