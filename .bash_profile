@@ -42,6 +42,8 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 alias gs='git status'
 alias ga='git add --all'
 alias gc='git commit -m' # requires you to type a commit message
+alias gl='git log'
+alias glo='git log --oneline'
 alias gp='git push'
 alias gpo='git push origin master'
 alias gpl='git pull'
@@ -121,6 +123,6 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 # init z! (https://github.com/rupa/z)
 . ~/z.sh
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-source ~/.profile
+
+### More Misc Custom Stuff
+#export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
