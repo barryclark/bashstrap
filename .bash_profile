@@ -12,7 +12,6 @@ alias s='open -a "Sublime Text"'
 colorflag="-G"
 alias ls="command ls ${colorflag}"
 alias l="ls -lF ${colorflag}" # all files, in long format
-alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
 alias ll="ls -laF ${colorflag}" # all files inc dotfiles, in long format
 alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
 
@@ -28,6 +27,7 @@ alias d="cd ~/Downloads"
 alias a="cd /apps"
 
 # Other helpful shortcuts for misc commands
+alias c="clear"
 alias p="ping -c 5"
 
 # Enable aliases to be sudo’ed
@@ -35,21 +35,25 @@ alias sudo='sudo '
 
 # Colored up cat!
 # You must install Pygments first - "sudo easy_install Pygments"
-alias c='pygmentize -O style=monokai -f console256 -g'
+alias cat2='pygmentize -O style=monokai -f console256 -g'
 
 # Git
 # You must install Git first - ""
 alias gs='git status'
 alias ga='git add --all'
 alias gc='git commit -m' # requires you to type a commit message
-alias gl='git log'
-alias glo='git log --oneline'
 alias gp='git push'
 alias gpo='git push origin master'
 alias gpl='git pull'
 alias gplo='git pull origin master'
 alias gclone='git clone'
 
+# Homebrew & Cask
+alias b='brew'
+alias bc='brew cask'
+
+# Tmux & Tmuxifier
+alias mux='tmuxifier'
 
 ### Prompt Colors
 # Modified version of @gf3’s Sexy Bash Prompt
@@ -125,4 +129,9 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 
 ### More Misc Custom Stuff
-#export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
+export TMUXIFIER_LAYOUT_PATH="$HOME/tmux-layouts"
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+
