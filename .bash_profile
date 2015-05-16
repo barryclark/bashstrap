@@ -17,10 +17,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-# Shortcuts to my Code folder in my home directory
-alias code="cd ~/Code"
-alias sites="cd ~/Code/sites"
-
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
@@ -29,7 +25,7 @@ alias sudo='sudo '
 alias c='pygmentize -O style=monokai -f console256 -g'
 
 # Git
-# You must install Git first - ""
+# You must install Git first
 alias gs='git status'
 alias ga='git add .'
 alias gc='git commit -m' # requires you to type a commit message
