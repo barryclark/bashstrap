@@ -1,5 +1,7 @@
 Bashstrap is a quick way to spruce up OSX terminal. It cuts out the fluff, adds in timesaving features, and provides a solid foundation for customizing your terminal style.
 
+Based on Mathias Bynens epic dotfiles - https://github.com/mathiasbynens/dotfiles
+
 <img src="https://raw.github.com/barryclark/bashstrap/master/screenshot.png" alt="screenshot" />
 
 ### Feature list
