@@ -26,11 +26,29 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 # Git
 # You must install Git first
-alias gs='git status'
-alias ga='git add .'
-alias gc='git commit -m' # requires you to type a commit message
-alias gp='git push'
 alias grm='git rm $(git ls-files --deleted)'
+
+alias g='git status -sb'
+alias gh='git hist'
+alias gp='git pull'
+alias gpr='git pull --rebase'
+alias gpp='git pull --rebase && git push'
+alias gf='git fetch'
+alias gb='git branch'
+alias ga='git add'
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gcv='git commit --no-verify'
+alias gd='git diff --color-words'
+alias gdc='git diff --cached -w'
+alias gdw='git diff --no-ext-diff --word-diff'
+alias gdv='git diff'
+alias gl='git log --oneline --decorate'
+alias gt='git tag'
+alias grc='git rebase --continue'
+alias grs='git rebase --skip'
+alias gsl='git stash list'
+alias gss='git stash save'
 
 ### Prompt Colors
 # Modified version of @gf3’s Sexy Bash Prompt
