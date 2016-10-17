@@ -51,7 +51,7 @@ _z() {
         local tempfile="$datafile.$RANDOM"
         while read line; do
             # only count directories
-            [ -d "${line%%\|*}" ] && echo $line
+            [ -d "${line%%\|*}" ] && echo "$line"
         done < "$datafile" | awk -v path="$*" -v now="$(date +%s)" -F"|" '
             BEGIN {
                 rank[path] = 1
@@ -86,7 +86,7 @@ _z() {
     # tab completion
     elif [ "$1" = "--complete" -a -s "$datafile" ]; then
         while read line; do
-            [ -d "${line%%\|*}" ] && echo $line
+            [ -d "${line%%\|*}" ] && echo "$line"
         done < "$datafile" | awk -v q="$2" -F"|" '
             BEGIN {
                 if( q == tolower(q) ) imatch = 1
@@ -127,7 +127,7 @@ _z() {
 
         local cd
         cd="$(while read line; do
-            [ -d "${line%%\|*}" ] && echo $line
+            [ -d "${line%%\|*}" ] && echo "$line"
         done < "$datafile" | awk -v t="$(date +%s)" -v list="$list" -v typ="$typ" -v q="$fnd" -F"|" '
             function frecent(rank, time) {
                 # relate frequency and time
@@ -202,7 +202,7 @@ _z() {
     fi
 }
 
-alias ${_Z_CMD:-z}='_z 2>&1'
+alias "${_Z_CMD:-z}"='_z 2>&1'
 
 [ "$_Z_NO_RESOLVE_SYMLINKS" ] || _Z_RESOLVE_SYMLINKS="-P"
 
@@ -233,7 +233,7 @@ if compctl >/dev/null 2>&1; then
 elif complete >/dev/null 2>&1; then
     # bash
     # tab completion
-    complete -o filenames -C '_z --complete "$COMP_LINE"' ${_Z_CMD:-z}
+    complete -o filenames -C '_z --complete "$COMP_LINE"' "${_Z_CMD:-z}"
     [ "$_Z_NO_PROMPT_COMMAND" ] || {
         # populate directory list. avoid clobbering other PROMPT_COMMANDs.
         grep "_z --add" <<< "$PROMPT_COMMAND" >/dev/null || {
