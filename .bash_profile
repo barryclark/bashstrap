@@ -26,10 +26,27 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 # Git
 # You must install Git first
-alias gs='git status'
-alias ga='git add .'
-alias gc='git commit -m' # requires you to type a commit message
-alias gp='git push'
+alias g='git status -sb'
+alias gh='git hist'
+alias gp='git pull'
+alias gpr='git pull --rebase'
+alias gpp='git pull --rebase && git push'
+alias gf='git fetch'
+alias gb='git branch'
+alias ga='git add'
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gcv='git commit --no-verify'
+alias gd='git diff --color-words'
+alias gdc='git diff --cached -w'
+alias gdw='git diff --no-ext-diff --word-diff'
+alias gdv='git diff'
+alias gl='git log --oneline --decorate'
+alias gt='git tag'
+alias grc='git rebase --continue'
+alias grs='git rebase --skip'
+alias gsl='git stash list'
+alias gss='git stash save'
 alias grm='git rm $(git ls-files --deleted)'
 
 ### Prompt Colors
@@ -74,17 +91,23 @@ export RESET
 
 # Git branch details
 function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
+	[[ $(git status 2> /dev/null | tail -n1) != *"working tree clean"* ]] && echo "*"
 }
 function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+}
+function parse_hg_dirty() {
+	[[ $(hg status 2> /dev/null | tail -n1) ]] && echo "*"
+}
+function parse_hg_branch() {
+	hg branch 2> /dev/null | sed -e "s/\(.*\)/\1$(parse_hg_dirty)/"
 }
 
 # Change this symbol to something sweet.
 # (http://en.wikipedia.org/wiki/Unicode_symbols)
 symbol="⚡ "
 
-export PS1="\[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]\n$symbol\[$RESET\]"
+export PS1="\[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]\$([[ -n \$(hg branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_hg_branch)\[$RESET\]\n$symbol\[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 
